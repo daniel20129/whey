@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suplementos Fit - Pagos</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f0f2f5;
+}
+
+/* Encabezado */
+.header {
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+.header h1 {
+    margin: 0;
+}
+
+/* Contenedor de productos */
+.productos {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px;
+}
+.producto {
+    background: #d0e8f2; /* Fondo distinto del blanco */
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    width: 250px;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+}
+.producto img {
+    width: 100%;
+    border-radius: 10px;
+}
+.producto h2 {
+    margin: 15px 0 10px 0;
+}
+.producto p {
+    margin: 5px 0;
+}
+.btn-pago {
+    background: #28a745;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.btn-pago:hover {
+    background: #218838;
+}
+
+/* Formulario de pago */
+.formulario-pago {
+    display: none; /* Se oculta hasta hacer click */
+    background: #fff3cd;
+    border: 1px solid #ffeeba;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    margin: 20px auto;
+}
+.formulario-pago h3 {
+    text-align: center;
+}
+.formulario-pago input {
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+.formulario-pago button {
+    width: 100%;
+    background: #007bff;
+}
+.formulario-pago button:hover {
+    background: #0056b3;
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+    <h1>Suplementos Fit</h1>
+    <p>Mejora tu rendimiento con los mejores suplementos</p>
+</div>
+
+<div class="productos">
+    <div class="producto">
+        <img src="gh.jpg" alt="Proteína Whey">
+        <h2>Proteína Whey</h2>
+        <p>1kg de proteína de suero de leche.</p>
+        <p><b>$500 MXN</b></p>
+        <button class="btn-pago" onclick="mostrarFormulario('Proteína Whey', 500)">Pago</button>
+    </div>
+
+    <div class="producto">
+        <img src="cre.jpg" alt="Creatina">
+        <h2>Creatina Monohidratada</h2>
+        <p>150g de creatina monohidratada.</p>
+        <p><b>$350 MXN</b></p>
+        <button class="btn-pago" onclick="mostrarFormulario('Creatina', 350)">Pago</button>
+    </div>
+</div>
+
+<!-- Formulario de pago -->
+<div id="formulario" class="formulario-pago">
+    <h3>Formulario de Pago</h3>
+    <p id="producto-seleccionado"></p>
+    <form onsubmit="alert('Pago simulado realizado ✅'); return false;">
+        <input type="text" placeholder="Nombre completo" required>
+        <input type="text" placeholder="Número de tarjeta" required>
+        <input type="text" placeholder="Fecha de expiración (MM/AA)" required>
+        <input type="text" placeholder="CVV" required>
+        <input type="number" id="monto" placeholder="Monto" readonly>
+        <button type="submit">Pagar</button>
+    </form>
+</div>
+
+<script>
+function mostrarFormulario(nombreProducto, precio) {
+    const form = document.getElementById('formulario');
+    document.getElementById('producto-seleccionado').innerText = "Producto: " + nombreProducto;
+    document.getElementById('monto').value = precio;
+    form.style.display = 'block';
+    form.scrollIntoView({behavior: "smooth"});
+}
+
+
+</script>
+
+</body>
+</html>
